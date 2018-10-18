@@ -46,8 +46,38 @@
 ##
 def main():
     alfabetoMinusculo = 'abcdefghijklmnopqrstuvwxyz'
-    alfabetoMaiusuclo = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alfabetoMaiusculo = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    chave = int(input("entre a chave: "))
+    string = input("entre a string: ")
+
+    tamanhoString = len(string)
+    contador = 0
+    stringRot = ''
+
+    alfabetoMaiusculoRot = alfabetoMaiusculo[chave:] + alfabetoMaiusculo[:chave]
+    alfabetoMinusculoRot = alfabetoMinusculo[chave:] + alfabetoMinusculo[:chave]
+
+
+
+    while contador < tamanhoString:
+        letra = string[contador]
+        
+        if letra.isupper():
+            indiceAlfabeto = alfabetoMaiusculoRot.find(letra)
+            novoIndice = indiceAlfabeto + chave
+            letraRot = alfabetoMaiusculoRot[novoIndice]
+        else:
+            indiceAlfabeto = alfabetoMinusculoRot.find(letra)
+            novoIndice = indiceAlfabeto + chave
+            letraRot = alfabetoMinusculoRot[novoIndice]
+        
+        stringRot = stringRot + letraRot
+        contador += 1
     
+    print(stringRot)
+        
+
 
 
     

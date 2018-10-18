@@ -45,7 +45,9 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 3")
+    alfabetoMinusculo = 'abcdefghijklmnopqrstuvwxyz'
+    alfabetoMaiusuclo = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    
 
 
     

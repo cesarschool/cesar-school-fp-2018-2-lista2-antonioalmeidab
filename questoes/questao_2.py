@@ -38,9 +38,41 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 2")
+    up = 'CIMA'
+    down = 'BAIXO'
+    right = 'DIREITA'
+    left = 'ESQUERDA'
+    x = y = 0
+    comando = 1
 
+    while(comando != '0'):
+        comando = input("Digite a direção e o passo (0 para sair): ").upper()
+        
+        if comando[:len(up)] == 'CIMA':
+            y = y + int(comando[5:])
+        if comando[:len(down)] == 'BAIXO':
+            y = y - int(comando[6:])
+        if comando[:len(right)] == 'DIREITA':
+            x = x + int(comando[8:])
+        if comando[:len(left)] == 'ESQUERDA':
+            x = x - int(comando[9:])
 
+        # if comando.find("CIMA") != -1:
+        #     y = y + int(comando[5:])
+        # if comando.find("BAIXO") != -1:
+        #     y = y - int(comando[6:])
+        # if comando.find("DIREITA") != -1:
+        #     x = x + int(comando[8:])
+        # if comando.find("ESQUERDA") != -1:
+        #     x = x - int(comando[9:])
     
+    distancia = (x**2 + y**2)**(1/2)
+    print("A distância percorrida foi: ", int(distancia))
+
+
+
+    # if comando[:len('CIMA')] == 'CIMA':
+    #     cont += 1
+
 if __name__ == '__main__':
     main()

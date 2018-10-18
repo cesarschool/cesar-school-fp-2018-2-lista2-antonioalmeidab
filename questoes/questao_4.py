@@ -19,7 +19,52 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 4")
+    ERRO = 'Data inválida!'
+    data = input("Digite uma data(forma aaaa-mm-dd): ")
+    ano = int(data[:4])
+    mes = int(data[5:7])
+    dia = int(data[8:])
+
+    if mes > 12:
+        print(ERRO)
+    else:
+        if mes == 2:
+            if dia > 29:
+                print(ERRO)
+            elif ano%4 == 0 and ano%100 != 0 or ano%400 == 0:
+                if dia <= 28:
+                    print("{}-{:02d}-{:02d}".format(ano, mes, dia+1))
+                else:
+                    print("{}-{:02d}-01".format(ano, mes+1))
+            else:
+                if dia > 28:
+                    print(ERRO)
+                elif dia <= 27:
+                    print("{}-{:02d}-{:02d}".format(ano, mes, dia +1))
+                else:
+                    print("{}-{:02d}-01".format(ano, mes+1))
+
+        elif mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
+            if dia > 31:
+                print (ERRO)
+            elif dia <= 30:
+                print("{}-{:02d}-{:02d}".format(ano, mes, dia + 1))
+            else:
+                if mes == 12:
+                    print("{}-01-01".format(ano + 1))
+                else:
+                    print("{}-{:02d}-01".format(ano, mes+1))
+        
+        else:
+            if dia > 30:
+                print(ERRO)
+            elif dia <= 29:
+                print("{}-{:02d}-{:02d}".format(ano, mes, dia +1 ))
+            else:
+                print("{}-{:02d}-01".format(ano, mes + 1))
+            
+
+            
 
 
     

@@ -28,9 +28,42 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 1")
-    
+    # senhas = input("Digite as senhas: ").split(',')
+    # senhasValidas = []
+    # for senha in senhas:
+    #     senha = senha.strip()
+    #     if (len(senha) >= 6 and len(senha) <= 12):
+    #         if (not senha.isupper() and not senha.islower()):
+    #             if(not senha.isalpha() and not senha.isnumeric()):
+    #                 if(senha.find("$") != -1 or senha.find("#") != -1 or senha.find("@") != 0):
+    #                     senhasValidas.append(senha)
+    # print(", ".join(senhasValidas))
+    senhas = input("Digite as senhas separadas por virgulas: ")
 
+    finalContador = len(senhas) - 1
+    contador = 0
+    ultimaVirgula = 0
 
+    while contador <= finalContador:
+        if senhas[contador] == ',':
+            senhaAtual = senhas[ultimaVirgula:contador]
+            senhaAtual = senhaAtual.strip()
+
+            if len(senhaAtual) >=6 and len(senhaAtual) <= 12:
+                if not senhaAtual.isalpha() and not senhaAtual.isnumeric():
+                    if not senhaAtual.isupper() and not senhaAtual.islower():
+                        if senhaAtual.find("$") != -1 or senhaAtual.find("#") != -1 or senhaAtual.find("@") != -1:
+                            print(senhaAtual, end = ", ")
+            ultimaVirgula = contador + 1
+        elif contador == finalContador:
+            senhaAtual = senhas[ultimaVirgula: finalContador + 1]
+            senhaAtual = senhaAtual.strip()
+            if len(senhaAtual) >=6 and len(senhaAtual) <= 12:
+                if not senhaAtual.isalpha() and not senhaAtual.isnumeric():
+                    if not senhaAtual.isupper() and not senhaAtual.islower():
+                        if senhaAtual.find("$") != -1 or senhaAtual.find("#") != -1 or senhaAtual.find("@") != -1:
+                            print(senhaAtual)
+        contador += 1
+                            
 if __name__ == '__main__':
     main()

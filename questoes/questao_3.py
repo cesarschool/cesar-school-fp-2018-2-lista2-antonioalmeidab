@@ -48,34 +48,51 @@ def main():
     alfabetoMinusculo = 'abcdefghijklmnopqrstuvwxyz'
     alfabetoMaiusculo = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-    chave = int(input("entre a chave: "))
-    string = input("entre a string: ")
+    entrada = input("digite a entrada: ")
 
-    tamanhoString = len(string)
-    contador = 0
-    stringRot = ''
-
-    alfabetoMaiusculoRot = alfabetoMaiusculo[chave:] + alfabetoMaiusculo[:chave]
-    alfabetoMinusculoRot = alfabetoMinusculo[chave:] + alfabetoMinusculo[:chave]
-
-
-
-    while contador < tamanhoString:
-        letra = string[contador]
-        
-        if letra.isupper():
-            indiceAlfabeto = alfabetoMaiusculoRot.find(letra)
-            novoIndice = indiceAlfabeto + chave
-            letraRot = alfabetoMaiusculoRot[novoIndice]
+    if 'ROT' in entrada:
+        numero = entrada[3:5].strip()
+        string = entrada[5:].strip()
+        if numero.isdigit():
+            chave = int(numero) 
         else:
-            indiceAlfabeto = alfabetoMinusculoRot.find(letra)
-            novoIndice = indiceAlfabeto + chave
-            letraRot = alfabetoMinusculoRot[novoIndice]
+            print('Erro')
+            return
         
-        stringRot = stringRot + letraRot
-        contador += 1
-    
-    print(stringRot)
+
+        tamanhoString = len(string)
+        contador = 0
+        stringRot = ''
+
+        alfabetoMaiusculoRot = alfabetoMaiusculo[chave:] + alfabetoMaiusculo[:chave]
+        alfabetoMinusculoRot = alfabetoMinusculo[chave:] + alfabetoMinusculo[:chave]
+
+
+
+        while contador < tamanhoString:
+            letra = string[contador]
+            
+            if letra.isupper():
+                indiceLetra = alfabetoMaiusculo.find(letra)
+                if indiceLetra == -1:
+                    print("Erro")
+                    return
+                letraRot = alfabetoMaiusculoRot[indiceLetra]
+            elif letra is " " or letra is ".":
+                letraRot = letra
+            else:
+                indiceLetra = alfabetoMinusculo.find(letra)
+                if indiceLetra == -1:
+                    print("Erro")
+                    return
+                letraRot = alfabetoMinusculoRot[indiceLetra]
+
+            stringRot = stringRot + letraRot
+            contador += 1
+        
+        print(stringRot)
+    else:
+        print("Erro")
         
 
 
